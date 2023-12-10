@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  height: 100%;
+}
+
+header,
+footer {
+  min-height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+header {
+  padding: 40px 0 0;
+}
+
+header .logo {
+  width: 298px;
+}
+
+header .logo img {
+  width: 200px;
+}
+
+header .menuHeader {
+  display: flex;
+  margin-top: 58px;
+  font-size: 36px;
+  color: #0073C6;
+}
+
+header .menuHeader .nameOtdel {
+  margin-right: 90px;
+}
+
+header .menuHeader .nameOtdel a {
+  text-decoration: none;
+  color: #0073C6;
+}
+
+header .menuHeader .nameOtdel a:hover {
+  color: transparent;
+  background-image: linear-gradient(90deg, black, red, blue, green, magenta, cyan, yellow, black);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 300px 300px;
+  background-position: 0 0;
+  animation: blik 2s infinite linear;
+}
+
+header .menuHeader .nameOtdel a:visited {
+  text-decoration: none;
+}
+
+header .menuHeader .popMenu {
+  width: 150px;
+  border-radius: 12px;
+  text-align: center;
+  perspective: 200px;
+  transition: all .07s linear;
+  position: relative;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-top: -15px;
+}
+
+header .menuHeader .popMenu:hover .three-d-box,
+header .menuHeader .popMenu:focus .three-d-box {
+  transform: translateZ(-25px) rotateX(90deg);
+}
+
+header .menuHeader .popMenu .three-d-box {
+  transition: all .3s ease-out;
+  transform: translatez(-25px);
+  transform-style: preserve-3d;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+header .menuHeader .popMenu .front {
+  transform: rotatex(0deg) translatez(25px);
+}
+
+header .menuHeader .popMenu .back {
+  transform: rotatex(-90deg) translatez(25px);
+  color: #ffe7c4;
+}
+
+header .menuHeader .popMenu .front,
+header .menuHeader .popMenu .back {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #0073C6;
+  color: white;
+  pointer-events: none;
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 10px 15px;
+}
+
+@keyframes blik {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: 300px;
+  }
+}
+
+.content {
+  padding: 100px 250px;
+  color: #0073C6;
+  font-size: 30px;
+  position: relative;
+  animation: 2s ease-in show;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+    animation-timing-function: cubic-bezier(.55, .055, .675, .19);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+    animation-timing-function: cubic-bezier(.175, .885, .32, 1);
+  }
+}
+
+.content a {
+  color: #0073C6;
+  text-decoration: underline dashed #0073C6;
+}
+
+.content a:visited {
+  text-decoration: underline dashed #0073C6;
+}
+
+.content a.bgDo:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20%;
+  width: 500px;
+  height: 0;
+  background: url("../images/bg-do.gif") no-repeat center;
+  z-index: -1;
+  /* opacity: 0; */
+  animation: .2s tremor linear infinite;
+}
+
+.content a.bgDo:hover:before {
+  height: 300px;
+  opacity: 0.8;
+  transition: all 1.5s ease;
+  transform: scale3d(0, 0, 1);
+}
+
+.content a.bgSup::before {
+  content: "";
+  position: absolute;
+  right: 0%;
+  top: 20%;
+  width: 500px;
+  height: 0;
+  background: url("../images/bg-support.gif") no-repeat center;
+  z-index: -1;
+  transition: all .4s ease;
+  transform: scale3d(0, 0, 1);
+  animation: .2s tremor ease-out infinite;
+}
+
+.content a.bgSup:hover:before {
+  height: 300px;
+  opacity: 0.8;
+}
+
+@keyframes tremor {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
